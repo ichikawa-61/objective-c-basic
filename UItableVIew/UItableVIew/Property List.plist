@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>picture</key>
+	<array>
+		<string>kawabata.jpg</string>
+		<string>dazai.jpg</string>
+		<string>natsume.jpg</string>
+	</array>
+	<key>sentence</key>
+	<array>
+		<string>国境の長いトンネルを抜けると雪国であった。夜の底が白くなった。</string>
+		<string>生れて来てよかったと、ああ、いのちを、人間を、世の中を、○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○
+　よろこんでみとうございます。
+ああ、いのちを、人間を、世の中を、
+よろこんでみとうございます。</string>
+		<string>我輩は、猫である</string>
+	</array>
+</dict>
+</plist>

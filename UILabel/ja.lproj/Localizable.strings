@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  UILabel
+
+  Created by Manami Ichikawa on 3/6/17.
+  Copyright © 2017 Manami Ichikawa. All rights reserved.
+*/
+
+"Obj-C class started" = "Obj-C講座をスタートしました。";
