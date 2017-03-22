@@ -23,24 +23,25 @@
         
         //タイトルとメッセージ表示
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"タイトル"
-                                                                       message:@"action sheet."
-                                                                preferredStyle:UIAlertControllerStyleActionSheet];
+                                                        message:@"action sheet."
+                                                        preferredStyle:UIAlertControllerStyleActionSheet];
         
         //選択肢を表示
         UIAlertAction *firstAction = [UIAlertAction actionWithTitle:@"Twitter"
-                                                              style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                                                                  NSLog(@"You pressed Twitter");
-                                                              }];
+                                                        style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                                                        NSLog(@"You pressed Twitter");
+                                                        }];
         
         UIAlertAction *secondAction = [UIAlertAction actionWithTitle:@"Facebook"
-                                                               style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-                                                                   NSLog(@"You pressed Facebook");
-                                                               }];
+                                                        style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                        NSLog(@"You pressed Facebook");
+                                                        }];
         
         UIAlertAction *thirdAction = [UIAlertAction actionWithTitle:@"Line"
-                                                              style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                                                                  NSLog(@"You pressed Line");
-                                                              }];
+                                      
+                                                        style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                                                        NSLog(@"You pressed Line");
+                                                        }];
         
         [alert addAction:firstAction];
         [alert addAction:secondAction];

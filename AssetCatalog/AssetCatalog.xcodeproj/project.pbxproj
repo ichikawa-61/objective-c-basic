@@ -109,8 +109,8 @@
 				386F2BF91E6F106E00A1EB92 /* ViewController.m */,
 				386F2BFB1E6F106E00A1EB92 /* Main.storyboard */,
 				386F2BFE1E6F106E00A1EB92 /* Assets.xcassets */,
-				386F2C001E6F106E00A1EB92 /* LaunchScreen.storyboard */,
 				38FE549A1E70F57000EAB436 /* main-bg.jpg */,
+				386F2C001E6F106E00A1EB92 /* LaunchScreen.storyboard */,
 				386F2C031E6F106E00A1EB92 /* Info.plist */,
 				386F2BF21E6F106E00A1EB92 /* Supporting Files */,
 			);

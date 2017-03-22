@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38DE52711E7BD5B5009B6215 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DE52701E7BD5B5009B6215 /* CollectionViewCell.m */; };
 		38FE54151E70331C00EAB436 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE54141E70331C00EAB436 /* main.m */; };
 		38FE54181E70331C00EAB436 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE54171E70331C00EAB436 /* AppDelegate.m */; };
 		38FE541E1E70331C00EAB436 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38FE541C1E70331C00EAB436 /* Main.storyboard */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		38DE526F1E7BD5B5009B6215 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		38DE52701E7BD5B5009B6215 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		38FE54101E70331C00EAB436 /* UICollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UICollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38FE54141E70331C00EAB436 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		38FE54161E70331C00EAB436 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -113,6 +116,8 @@
 				38FE54171E70331C00EAB436 /* AppDelegate.m */,
 				38FE54461E7033B600EAB436 /* CollectionViewController.h */,
 				38FE54471E7033C500EAB436 /* CollectionViewController.m */,
+				38DE526F1E7BD5B5009B6215 /* CollectionViewCell.h */,
+				38DE52701E7BD5B5009B6215 /* CollectionViewCell.m */,
 				38FE541C1E70331C00EAB436 /* Main.storyboard */,
 				38FE54551E704C6700EAB436 /* img5.jpg */,
 				38FE54511E704C1B00EAB436 /* natsume.jpg */,
@@ -294,6 +299,7 @@
 			files = (
 				38FE54181E70331C00EAB436 /* AppDelegate.m in Sources */,
 				38FE54151E70331C00EAB436 /* main.m in Sources */,
+				38DE52711E7BD5B5009B6215 /* CollectionViewCell.m in Sources */,
 				38FE54481E7033C500EAB436 /* CollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

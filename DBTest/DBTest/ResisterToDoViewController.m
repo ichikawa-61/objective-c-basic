@@ -26,28 +26,30 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-}
-*/
+//}
+
 - (IBAction)saveTask:(id)sender {
     
    
     
     if(self.titleTx.text.length==0){
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"title"
-                                                                                 message:@"タイトルを入力してください！！"
-                                                                          preferredStyle:UIAlertControllerStyleAlert];
-        [alertController addAction:[UIAlertAction actionWithTitle:@"はい"
-                                                            style:UIAlertActionStyleDefault
-                                                          handler:^(UIAlertAction *action) {
-                                                              [self yesButtonPushed];
-                                                          }]];
+                             message:@"タイトルを入力してください！！"
+                      preferredStyle:UIAlertControllerStyleAlert];
+            [alertController addAction:[UIAlertAction actionWithTitle:@"はい"
+                               style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction *action) {
+                             [self yesButtonPushed];
+                             }
+            ]
+        ];
         
         [self presentViewController:alertController animated:YES completion:nil];
 
@@ -69,7 +71,6 @@
                      objectAtIndex:0];
     NSString *db_path = [dir stringByAppendingPathComponent:@"todo.db"];
     //dbファイルまでのパス テスト用
-    NSLog(@"DB-Path : %@",db_path);
     
     FMDatabase *db = [FMDatabase databaseWithPath:db_path];
         
@@ -86,16 +87,15 @@
     [db close];
         
         //画面を閉じる
+        
         [self dismissViewControllerAnimated:YES completion:nil];
-        //[TodoViewController.tableView reloadData];
     }
     
     
 }
 
 - (void)yesButtonPushed{
-    //[self dismissViewController:alertController animated:YES completion:nil];
-    //NSLog(@"はい");
+    
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
@@ -109,5 +109,9 @@
     NSDateFormatter *df = [[NSDateFormatter alloc]init];
     df.dateFormat = @"yyyy/MM/dd";
     self.dateTx.text = [df stringFromDate:self.setDate.date];
+}
+- (IBAction)goBack:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

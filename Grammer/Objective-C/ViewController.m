@@ -26,15 +26,13 @@
     NSNumber *num  = [NSNumber numberWithBool:YES];
     NSInteger age = 10;
     NSArray *fruit = @[@"apple",@"banana",@"orange"];
-    NSDictionary *city = [NSDictionary dictionaryWithObjectsAndKeys:
-                          
-                          @"札幌", @"北海道",
-                          @"那覇", @"沖縄",
-                          @"甲府", @"山梨",
-                          @"前橋", @"群馬",
-                          @"松江", @"島根",
-                          @"高松", @"香川",
-                          nil];
+    NSDictionary *city = @{@"札幌" : @"北海道",
+                           @"那覇" : @"沖縄",
+                           @"甲府" : @"山梨",
+                           @"前橋" : @"群馬",
+                           @"松江" : @"島根",
+                           @"高松" : @"香川",
+                        };
     
     NSString *primary = [city objectForKey:@"沖縄"];
     

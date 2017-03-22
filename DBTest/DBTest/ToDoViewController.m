@@ -5,69 +5,85 @@
 //  Created by Manami Ichikawa on 3/13/17.
 //  Copyright © 2017 Manami Ichikawa. All rights reserved.
 //
-
 #import "ToDoViewController.h"
 #import "ResisterToDoViewController.h"
 #import "FMDB.h"
 #import "CostomCell.h"
+#import "Todo.h"
+#import "DetailViewController.h"
 
 @interface TodoViewController ()
 
-@property (nonatomic) NSMutableArray *tasks;
+@property (nonatomic, strong) NSMutableArray *list;
 
 @end
 
 @implementation TodoViewController{
-
-//データベースから取り出しtitleを格納
-@private NSMutableArray *titleArry;
-@private NSMutableArray *dateArry;
+    
+    
 }
+@synthesize list;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
     //初期化
-    titleArry = [[NSMutableArray alloc] init ];
-    dateArry = [[NSMutableArray alloc] init ];
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask,YES);
-        NSString *dir = [paths
-                         objectAtIndex:0];
-        NSString *db_path = [dir stringByAppendingPathComponent:@"todo.db"];
-            //NSLog(@"%@", db_path);
-                             FMDatabase *db = [FMDatabase databaseWithPath:db_path];
-        NSString *sql = @"CREATE TABLE IF NOT EXISTS  tr_todo(todo_id INTEGER PRIMARY KEY AUTOINCREMENT, todo_title TEXT, todo_contents TEXT, created DATE, modified DATE, limit_date DATE, delete_flg BOOL); ";
-        [db open];
-        [db executeUpdate:sql];
-        [db close];
+      NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask,YES);
+    NSString *dir = [paths
+                     objectAtIndex:0];
+    NSString *db_path = [dir stringByAppendingPathComponent:@"todo.db"];
+   
+    FMDatabase *db = [FMDatabase databaseWithPath:db_path];
+    NSString *sql = @"CREATE TABLE IF NOT EXISTS  tr_todo(todo_id INTEGER PRIMARY KEY AUTOINCREMENT, todo_title TEXT, todo_contents TEXT, created DATE, modified DATE, limit_date DATE, delete_flg BOOL); ";
+    [db open];
+    [db executeUpdate:sql];
+    [db close];
+        
     
     
-    [self selectTitle:titleArry];
-    [self selectDate:dateArry];
-    
-//    FMResultSet *results = [db executeQuery:list];
-//    NSLog(@"%@",results);
-//    while ([results next]) {
-//        NSLog(@"%d %@", [results intForColumn:@"todo_id"], [results stringForColumn:@"todo_title"]);
 }
 
 
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated{
+    
+    
     [super viewWillAppear:animated];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask,YES);
+    NSString *dir = [paths
+                     objectAtIndex:0];
+    NSString *db_path = [dir stringByAppendingPathComponent:@"todo.db"];
     
-//    titleArry = [[NSMutableArray alloc] init ];
-//    dateArry = [[NSMutableArray alloc] init ];
-//    
-//    [self selectTitle:titleArry];
-//    [self selectDate:dateArry];
-//    
+    FMDatabase *db = [FMDatabase databaseWithPath:db_path];
+    NSString *sqlite = @"select* from tr_todo where delete_flg = ? ORDER BY limit_date ASC ";
+    [db open];
+    FMResultSet*  results = [db executeQuery:sqlite,[NSNumber numberWithBool:1]];
     
-    [_tableView reloadData]; //テーブルをリロードして更新
+    NSMutableArray* lists = [[NSMutableArray alloc] initWithCapacity:0];
+//       NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    [formatter setDateFormat:@"yyyy/MM/dd"];
+    while ([results next]){
+        Todo*todo = [[Todo alloc] init];
+        todo.todoId     = [results intForColumn:@"todo_id"];
+        todo.todoTitle  = [results stringForColumn:@"todo_title"];
+        todo.todoContents  = [results stringForColumn:@"todo_contents"];
+        todo.limitDate  = [results stringForColumn:@"limit_date"];
+        
+       
+        [lists addObject:todo];
+        //        // 出力
+        //
+        self.list = lists;
+        
+    }
+    
+    [results close];
+    [db close];
+
+    
+    [self.tableView reloadData]; //テーブルをリロードして更新
 }
-
-
 
 
 
@@ -85,75 +101,92 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
-
+    
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
+   
     //データベースのタイトルの数だけ行を作る
-    return titleArry.count;
-   }
 
+    return self.list.count;
+}
+
+
+
+//行に表示する内容が決まる
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *CellIdentifier = @"ToDoItemRow";
     CostomCell *cell = (CostomCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] ;
-//    }
     
-   cell.titleLabel.text = [titleArry objectAtIndex:indexPath.row];
-   cell.dateLabel.text  = [dateArry objectAtIndex:indexPath.row];
-    return cell;
-}
-
-
-
-#pragma - 
-
-
-//タイトルを取得する
-
-- (NSMutableArray *)selectTitle :(NSMutableArray *)array{
-     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask,YES);
     
-    NSString *dir = [paths
-                     objectAtIndex:0];
-    NSString *db_path = [dir stringByAppendingPathComponent:@"todo.db"];
-    NSLog(@"テスト%@", db_path);
-    FMDatabase *db  = [FMDatabase databaseWithPath:db_path];
-    [db open];
-    FMResultSet *list = [db executeQuery:@"select todo_title from tr_todo"];
-
     
-    NSString* titleData;
-    while ([list next]){
-        
-        // 出力
-        titleData = [list stringForColumn:@"todo_title"];
-        [array addObject:titleData];
-            }
+    Todo *todo = [self.list objectAtIndex:indexPath.row];
+    cell.titleLabel.text = todo.todoTitle;
+    cell.dateLabel.text = todo.limitDate;
     
-    //NSLog(@"%@",array);
-    //NSLog(@"%@",titleArry);
-    [db close];
-    return array;
    
+        return cell;
 }
+
+
+
+#pragma -
+
+
+
+
 
 - (IBAction)goToResister:(id)sender {
     
     ResisterToDoViewController *ResisterView = [self.storyboard instantiateViewControllerWithIdentifier:@"ResisterView"];
-    ///    secondView.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:ResisterView animated:YES completion:nil];
+      [self presentViewController:ResisterView animated:YES completion:nil];
+}
+
+
+
+
+
+//セルをタップすると呼ばれる
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    //self.selectedIndexPath = indexPath;
+    // セグエを呼び出して画面遷移。
+    [self performSegueWithIdentifier:@"pushDetailView" sender:self];
+    
+    
+}
+
+//segue が動く時に遷移先のviewcontrollerに伝えるメソッド
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+
+    if ([segue.identifier  isEqualToString:@"pushDetailView"]) {
+        // 遷移先を取得
+        DetailViewController *detailViewController = segue.destinationViewController;
+        
+        //選択された行の情報取得
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        
+        //listの中にあるrow番目の情報を格納
+        Todo*todo =[self.list objectAtIndex:indexPath.row];
+        //detailViewController.changeTitle.text = todo.todoTitle;
+        detailViewController.test = todo.todoTitle;
+        detailViewController.de_title = todo.todoTitle;
+        detailViewController.de_contens = todo.todoContents;
+        detailViewController.de_date = todo.limitDate;
+        detailViewController.de_id = todo.todoId;
+        
+        
+        //NSLog(@"%@",todo.todoContents);
+        //[ todo. objectAtIndex:indexPath.row];
+    }
 }
 
 
 
 //デリゲートは、tableView:editingStyleForRowAtIndexPath:メソッドで行の編集スタイルを返すことによって、コントロールを割り当て。削除タップでViewコントローラーがTable ViewからtableView:commitEditingStyle:forRowAtIndexPath:メッセージを受信。
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-
+    
     
     
     //セル削除で引数にindexPathを渡して、removeRowメソッドを実行
@@ -165,30 +198,37 @@
 
 
 
-//受け取った引数から、row番目と行を割り出し、titleArryとdetaArryの配列要素を削除
+
+
+//受け取った引数から、row番目と行を割り出し、削除
 - (void)removeRow:(NSIndexPath*)indexPath
-    {
-        //選択したrow番目の配列要素を削除する。
-        NSInteger row = [indexPath row];
-        [titleArry removeObjectAtIndex: row];
-        [dateArry removeObjectAtIndex: row];
-        
-        
-        //セルが消えるアニメーション
-        [_tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]  withRowAnimation:UITableViewRowAnimationFade];
-        
-        
-       
-        //[DataModels drop_table];
-        [self deleteRow : indexPath];
-        
-        
-        
+{
+   
+    NSInteger num;
+    
+    Todo*todo =[self.list objectAtIndex:indexPath.row];
+    
+    //クリックされたrowをlistの中から削除　これを忘れるとdeleteRowsAtIndexPathsメソッドで落ちる
+    [self.list removeObjectAtIndex: indexPath.row];
+    
+    //セルが消えるアニメーション
+    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]  withRowAnimation:UITableViewRowAnimationFade];
+    
+    
+    //DBの処理を実装。クリックしたrowのDB上のidを取得してdeleteRowメソッド
+    num = todo.todoId;
+    [self deleteRow :num];
+    
+    
+    
 }
 
 
-- (void)deleteRow :(NSIndexPath*)indexPath{
-    
+
+
+//データベースの値削除するための関数　indexPathを受け取って行を認識する
+//- (void)deleteRow :(NSIndexPath*)indexPath{
+- (void)deleteRow :(NSInteger)num{
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask,YES);
     
@@ -197,53 +237,15 @@
     NSString *db_path = [dir stringByAppendingPathComponent:@"todo.db"];
     
     FMDatabase *db  = [FMDatabase databaseWithPath:db_path];
+    NSString *sql = @"update tr_todo set delete_flg = ? where todo_id = ?";
+    
+    
     [db open];
-    
-    
-    //whereの部分実装してない
-    NSString *sql = @"update tr_todo set delete_flg = ? where  ?";
-    
-    [db executeUpdate:sql,[NSNumber numberWithBool:0]];
-
-}
-
-
-
-//期限を取得する
-
-- (NSMutableArray *)selectDate :(NSMutableArray *)array{
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask,YES);
-    
-    NSString *dir = [paths
-                     objectAtIndex:0];
-    NSString *db_path = [dir stringByAppendingPathComponent:@"todo.db"];
-    //NSLog(@"テスト%@", db_path);
-    FMDatabase *db  = [FMDatabase databaseWithPath:db_path];
-    [db open];
-    FMResultSet *list = [db executeQuery:@"select limit_date from tr_todo"];
-    //NSLog(@"日付%@",list);
-
-    
-    NSDate* dateData;
-   
-    while ([list next]){
-        
-        // 出力
-    dateData = [list dateForColumn:@"limit_date"];
-         //NSLog(@"日付%@",array);
-        NSLog(@"%@",dateData);
-        [array addObject:dateData];
-        
-    }
-   
-    
-    
-    
+    [db executeUpdate:sql,[NSNumber numberWithBool:0],[NSNumber numberWithInteger:num]];
     [db close];
-    return array;
+    
     
 }
-
 
 @end
+
