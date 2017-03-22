@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZDV-Ya-H9J">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Item 2-->
+        <scene sceneID="0pU-SF-alK">
+            <objects>
+                <viewController storyboardIdentifier="SecondViewController" automaticallyAdjustsScrollViewInsets="NO" id="gto-I6-XvD" customClass="SecondViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ipg-U2-mON"/>
+                        <viewControllerLayoutGuide type="bottom" id="1Yr-Rv-JQ4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4X3-Wh-7PE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAx-hT-N5d">
+                                <rect key="frame" x="137" y="230" width="109" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" image="1489063201_Camera-01.png" id="BVT-lL-OP4">
+                        <inset key="imageInsets" minX="22" minY="26" maxX="22" maxY="20"/>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="label2" destination="bAx-hT-N5d" id="l3H-be-zme"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hbK-71-vDJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="196" y="53.523238380809602"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="TUd-aT-HVh">
+            <objects>
+                <viewController storyboardIdentifier="FirstViewController" automaticallyAdjustsScrollViewInsets="NO" id="Pg2-cK-ZdK" customClass="FirstViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GJX-Of-DfT"/>
+                        <viewControllerLayoutGuide type="bottom" id="GAR-Y0-EeA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LsS-3x-DpJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSq-J7-sdU">
+                                <rect key="frame" x="143" y="227" width="103" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" image="1489063194_Home-01.png" id="6rF-e6-jlI">
+                        <inset key="imageInsets" minX="23" minY="26" maxX="23" maxY="23"/>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="label1" destination="vSq-J7-sdU" id="dqq-1c-1ge"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rD8-zj-Nde" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="194.40000000000001" y="-601.34932533733138"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="4y0-ap-n0E">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" id="ZDV-Ya-H9J" customClass="TabBarController" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="jff-Ym-V6K">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Pg2-cK-ZdK" kind="relationship" relationship="viewControllers" id="fff-ai-qOa"/>
+                        <segue destination="gto-I6-XvD" kind="relationship" relationship="viewControllers" id="eQX-ns-lqa"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gh6-Qr-vqF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-759" y="-273"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="1489063194_Home-01.png" width="128" height="128"/>
+        <image name="1489063201_Camera-01.png" width="128" height="128"/>
+    </resources>
+</document>
