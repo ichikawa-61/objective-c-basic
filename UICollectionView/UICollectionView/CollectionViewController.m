@@ -7,10 +7,10 @@
 //
 
 #import "CollectionViewController.h"
-
+#import "CollectionViewCell.h"
 @interface CollectionViewController (){
     
-NSArray *Photos;
+NSArray *photos;
 }
 @end
 
@@ -22,7 +22,7 @@ NSArray *Photos;
     [self.sampleCollection setDelegate:self];
     [self.sampleCollection setDataSource:self];
     // Do any additional setup after loading the view, typically from a nib.
-    Photos = [NSArray arrayWithObjects:@"main-bg.jpg", @"natsume.jpg", @"lincolin.jpg", @"img5.jpg",nil];
+    photos = [NSArray arrayWithObjects:@"main-bg.jpg", @"natsume.jpg", @"lincolin.jpg", @"img5.jpg",nil];
     
 }
 
@@ -35,7 +35,7 @@ NSArray *Photos;
 //セクション内のセルの数
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return Photos.count;
+    return photos.count;
 }
 
 
@@ -53,12 +53,12 @@ NSArray *Photos;
 //    　imageViewは中身あり
 //    ----------------------------
        // static NSString *identifier = @"sampleCell";
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"sampleCell" forIndexPath:indexPath];
+    CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"sampleCell" forIndexPath:indexPath];
     //[cell setBackgroundColor:[UIColor blueColor]];
     
     //UIImage *image = [UIImage imageNamed:@"main-bg.jpg"];
     UIImageView *imageView = (UIImageView *)[cell viewWithTag:2];
-    imageView.image = [UIImage imageNamed:[Photos objectAtIndex:indexPath.row]];;
+    imageView.image = [UIImage imageNamed:[photos objectAtIndex:indexPath.row]];;
     return cell;
 }
 

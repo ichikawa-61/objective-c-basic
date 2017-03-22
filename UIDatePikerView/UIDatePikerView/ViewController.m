@@ -56,7 +56,7 @@
     date.dateFormat = @"yyyy年MM月dd日";
 
     self.label.text = [date stringFromDate:self.datepicker.date];
-    }
+}
 
 -(void)setTapView {
          

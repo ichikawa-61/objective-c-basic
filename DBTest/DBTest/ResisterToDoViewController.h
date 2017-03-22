@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *titleTx;
 @property (weak, nonatomic) IBOutlet UILabel *dateTx;
 
+- (IBAction)goBack:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UITextView *contents;
 @property (weak, nonatomic) IBOutlet UIDatePicker *setDate;

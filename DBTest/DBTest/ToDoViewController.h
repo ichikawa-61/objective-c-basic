@@ -12,8 +12,9 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-- (NSMutableArray *)selectTitle:(NSMutableArray *)array;
+//- (NSMutableArray *)selectTitle:(NSMutableArray *)array;
 - (IBAction)goToResister:(id)sender;
+//@property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 
 @end
 

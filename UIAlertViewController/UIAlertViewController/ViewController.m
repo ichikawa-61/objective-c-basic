@@ -29,9 +29,10 @@
 - (IBAction)PushButton:(id)sender {
     
     //アラートオブジェクト
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"タイトル"
-                                                                             message:@"メッセージ"
-                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:@"タイトル"
+                                          message:@"メッセージ"
+                                          preferredStyle:UIAlertControllerStyleAlert];
     
     [alertController addAction:[UIAlertAction actionWithTitle:@"はい"
                                                         style:UIAlertActionStyleDefault

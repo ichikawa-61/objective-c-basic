@@ -10,4 +10,9 @@
 
 @interface Todo : NSObject
 
+@property (nonatomic, assign) NSInteger todoId;
+@property (nonatomic, copy) NSString* todoTitle;
+@property (nonatomic, copy) NSString* limitDate;
+@property (nonatomic, copy) NSString*todoContents;
+
 @end

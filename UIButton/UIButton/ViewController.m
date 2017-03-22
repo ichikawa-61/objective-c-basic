@@ -11,6 +11,7 @@
 
 @interface ViewController ()
 
+
 @end
 
 @implementation ViewController
@@ -48,36 +49,48 @@
         x = 0;
         
     }
+    
+//    UIImage *image1 = [UIImage imageNamed:@"img1.jpg"];
+//    UIImage *image2 = [UIImage imageNamed:@"img2.jpg"];
+//    UIImage *image3 = [UIImage imageNamed:@"img3.png"];
+//    UIImage *image4 = [UIImage imageNamed:@"img4.jpg"];
+//    UIImage *image5 = [UIImage imageNamed:@"img5.jpg"];
+
+    NSArray *images = @[[UIImage imageNamed:@"img1.jpg"],
+                        [UIImage imageNamed:@"img2.jpg"],
+                        [UIImage imageNamed:@"img3.png"],
+                        [UIImage imageNamed:@"img4.jpg"],
+                        [UIImage imageNamed:@"img5.jpg"]];
+    
+    [background setImage: images[x]];
+    
    
-    UIImage *image1 = [UIImage imageNamed:@"img1.jpg"];
-    UIImage *image2 = [UIImage imageNamed:@"img2.jpg"];
-    UIImage *image3 = [UIImage imageNamed:@"img3.png"];
-    UIImage *image4 = [UIImage imageNamed:@"img4.jpg"];
-    UIImage *image5 = [UIImage imageNamed:@"img5.jpg"];
-    
-    switch (x){
-        case 0:
-            [background setImage: image1];
-           break;
-        case 1:
-           [background setImage: image2];
-            break;
-        case 2:
-            [background setImage: image3];
-            break;
-        case 3:
-            [background setImage: image4];
-            break;
-        case 4:
-            [background setImage: image5];
-            break;
-    
-    }
-    
-    
-    
-    
-    
-    
 }
+    
+    
+//    switch (x){
+//        case 0:
+//            [background setImage: image1];
+//           break;
+//        case 1:
+//           [background setImage: image2];
+//            break;
+//        case 2:
+//            [background setImage: image3];
+//            break;
+//        case 3:
+//            [background setImage: image4];
+//            break;
+//        case 4:
+//            [background setImage: image5];
+//            break;
+//    
+//    }
+//    
+    
+    
+    
+    
+    
+
 @end

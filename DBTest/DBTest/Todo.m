@@ -10,4 +10,17 @@
 
 @implementation Todo
 
+//@synthesizeはimplementationの中
+@synthesize todoId, todoTitle, limitDate;
+
+
+//- (void)dealloc
+//{
+//    self.todoTitle     = nil;
+//    self.limitDate     = nil;
+//    
+//    //[super dealloc];
+//}
+
 @end
+

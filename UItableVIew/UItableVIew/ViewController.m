@@ -31,24 +31,27 @@
     
     
     //プロジェクト内のファイルにアクセスできるオブジェクトを宣言
-    NSBundle *bundle = [NSBundle mainBundle];
+    NSBundle *bundle  = [NSBundle mainBundle];
     
     //読み込むプロパティリストのファイルパスを指定
     NSString *path = [bundle pathForResource:@"Property List" ofType:@"plist"];
  
-    //plistの中身データを取得
+    //plistの中身データを取得 pathのデータをdicに入れる。
     NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:path];
     
+    
     //plistで作った配列のキーで値を得る
-    NSArray *sentence = [dic objectForKey:@"sentence"];
-    NSArray *pict = [dic objectForKey:@"picture"];
+    //dicの中にあるkey sentenceの値をsentenceに入れる
+    NSArray *sentence = dic[@"sentence"];
     
-    //NSLog(@"%@",sentence);
+    //dicの中にあるkey pictureの値をsentenceに入れる
+    NSArray *pict     = dic[@"picture"];
     
+
     //取得できた配列データをメンバ変数に代入
     
     self.sentence = sentence;
-    self.picture = pict;
+    self.picture  = pict;
     
     // Do any additional setup after loading the view, typically from a nib.
     
@@ -58,7 +61,7 @@
 }
 
 
-
+#pragma mark - UITableViewDataSource
 
 
 //必須　セクションの数を返す
@@ -74,7 +77,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return [self.picture count];
+    return self.picture.count;
     
 }
 
@@ -84,13 +87,6 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 
 {
-    //static NSString *identifier = @"SimpleTableItem";
-    
-    
-    
-    //    TableCellView *cell = [tableView dequeueReusableCellWithIdentifier:@"TableCellView"forIndexPath:indexPath];
-    
-    
     
     
     
@@ -102,49 +98,12 @@
     
     //TableCellView（せるカスタマイズするためのクラス）ではなくUITableViewCell（その親クラス）のプロパティ使ったためにセル実装できなかった->コメント l.111
     
-    cell.thumnailImageView.image = [UIImage imageNamed:[self.picture objectAtIndex:indexPath.row]];
+    cell.thumnailImageView.image = [UIImage imageNamed:[self.picture objectAtIndex
+                                                      :indexPath.row]];
     
     cell.titleLabel.numberOfLines = 0;
     
     cell.titleLabel.text =  [self.sentence objectAtIndex:indexPath.row];
-    
-    
-    
-    //    if (cell == nil) {
-    
-    //
-    
-    //        cell = [[TableCellView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TableCellView"];
-    
-    //
-    
-    //    }
-    
-    
-    
-    //テーブルビューのセルの高さを自動調整
-    
-    //    tableView.rowHeight = UITableViewAutomaticDimension;
-    
-    
-    
-    
-    
-    //labelの最大行数を指定。制限をなくしたいので0
-    
-    //    cell.textLabel.numberOfLines = 0;
-    
-    //
-    
-    //    //cell.textLabel.sizeToFit;
-    
-    //    cell.textLabel.text = [self.sentence objectAtIndex:indexPath.row];
-    
-    //
-    
-    //    //最初の行、indexPath.row propertyは０をreturn。objectAtIndex” method.を使って thumbnails array から最初のイメージを取得。
-    
-    //    cell.imageView.image = [UIImage imageNamed:[self.picture objectAtIndex:indexPath.row]];
     
     
     return cell;
