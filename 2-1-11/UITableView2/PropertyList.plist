@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>sea</key>
+	<array>
+		<dict>
+			<key>words</key>
+			<string>Every man is said to have his peculiar ambition. Whether it be true or not, I can say for one that I have no other so great as that of being truly esteemed of my fellow men, by rendering myself worthy of their esteem.</string>
+			<key>picture</key>
+			<string>lincolin.jpg</string>
+		</dict>
+		<dict>
+			<key>words</key>
+			<string>Why worry? If you&apos;ve done the very best you can, worrying won&apos;t make it any better”</string>
+			<key>picture</key>
+			<string>walt.jpg</string>
+		</dict>
+		<dict>
+			<key>words</key>
+			<string>What is the seal of liberation? Not to be ashamed in front of oneself.
+</string>
+			<key>picture</key>
+			<string>nietzsche.jpg</string>
+		</dict>
+	</array>
+	<key>jap</key>
+	<array>
+		<dict>
+			<key>words</key>
+			<string>国境の長いトンネルを抜けると雪国であった。夜の底が白くなった。</string>
+			<key>picture</key>
+			<string>kawabata.jpg</string>
+		</dict>
+		<dict>
+			<key>words</key>
+			<string>生れて来てよかったと、ああ、いのちを、人間を、世の中を、よろこんでみとうございます。ああ、いのちを、人間を、世の中を、よろこんでみとうございます。</string>
+			<key>picture</key>
+			<string>dazai.jpg</string>
+		</dict>
+		<dict>
+			<key>words</key>
+			<string>我輩は、猫である</string>
+			<key>picture</key>
+			<string>natsume.jpg</string>
+		</dict>
+	</array>
+</dict>
+</plist>
