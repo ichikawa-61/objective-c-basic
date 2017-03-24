@@ -14,6 +14,11 @@
 
 @implementation RootPageViewController
 
+//元からあったviewControllerはrootViewCintrollerの役目。追加したContntViewContollerが実際に表示される。
+
+
+//UIPageViewContorollerのイニシャライザ
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -42,10 +47,27 @@
 }
 
 
-//右スワイプで呼ばれる
 
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
+- (ContentViewController *)viewControllerAtIndex:(NSUInteger)index
 {
+    if (([self.titleArray count] == 0) || (index >= [self.titleArray count])) {
+        return nil;
+    }
+    
+    // Create a new view controller and pass suitable data.
+    ContentViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ContentViewController"];
+    
+    pageContentViewController.title = self.titleArray[index];
+    pageContentViewController.pageIndex = index;
+    return pageContentViewController;
+}
+
+
+
+#pragma mark - UIPageViewControllerDataSource
+
+//次のスクリーンで何が呼ばれるか
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController{
 
 //！ストーリボード確認
     NSUInteger index =((ContentViewController*) viewController).pageIndex;
@@ -58,9 +80,8 @@
     
 }
 
-//左スワイプで呼べれる
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
-{
+//前のスクリーンで何が呼ばれるか
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController{
 
     
     NSUInteger index = ((ContentViewController*) viewController).pageIndex;
@@ -77,19 +98,6 @@
 }
 
 
-- (ContentViewController *)viewControllerAtIndex:(NSUInteger)index
-{
-    if (([self.titleArray count] == 0) || (index >= [self.titleArray count])) {
-        return nil;
-    }
-    
-    // Create a new view controller and pass suitable data.
-    ContentViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ContentViewController"];
-    
-    pageContentViewController.title = self.titleArray[index];
-    pageContentViewController.pageIndex = index;
-    return pageContentViewController;
-}
 
 #pragma mark - No of Pages Methods
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController
