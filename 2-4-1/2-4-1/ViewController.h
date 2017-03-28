@@ -7,18 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WeatherService.h"
 
-@interface ViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface ViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,APIgetWeatherDelegte>//@property (weak,nonatomic) id <APIgetWeatherDelegte>delegate;
 
+//-(void)getWeatherInfo;
 //- (NSMutableArray *)getWeather;
 //@property (strong, nonatomic) NSString *dateLabel;
 //@property (strong, nonatomic) NSString *telop;
 //@property (strong, nonatomic) NSString *imageUrl;
+//@property (weak,nonatomic) id<APIgetWeatherDelegte> delegate;
 
-//
 //@property NSMutableArray *weatherTest;
-@property (strong, nonatomic) NSString   *city;
-@property (strong, nonatomic) NSString   *discription;
+
 - (IBAction)getWeather:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 

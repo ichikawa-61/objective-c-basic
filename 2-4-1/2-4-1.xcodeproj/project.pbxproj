@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		27B9F52E2B9FEFC3C76DCABF /* libPods-2-4-1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05073A2CCA2E8936904E2058 /* libPods-2-4-1.a */; };
+		3803D6771E84E4A70055226B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3803D6761E84E4A70055226B /* libsqlite3.dylib */; };
+		3803D67E1E84EB070055226B /* WeatherService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3803D67D1E84EB070055226B /* WeatherService.m */; };
+		3803D81B1E891A960055226B /* ManageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3803D81A1E891A960055226B /* ManageData.m */; };
 		3812C4CE1E81123B00D6A019 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3812C4CD1E81123B00D6A019 /* CustomCell.m */; };
 		38A235951E793B1A00EE752A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A235941E793B1A00EE752A /* main.m */; };
 		38A235981E793B1A00EE752A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A235971E793B1A00EE752A /* AppDelegate.m */; };
@@ -44,6 +47,11 @@
 		0D132C9658E019AF727287EB /* libPods-2-4-1Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-2-4-1Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F234494894C474E3203B93 /* Pods-2-4-1Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-2-4-1Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-2-4-1Tests/Pods-2-4-1Tests.release.xcconfig"; sourceTree = "<group>"; };
 		3453ACFA13FEA7770EE64F61 /* Pods-2-4-1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-2-4-1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-2-4-1/Pods-2-4-1.debug.xcconfig"; sourceTree = "<group>"; };
+		3803D6761E84E4A70055226B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../../../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
+		3803D67C1E84EB070055226B /* WeatherService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherService.h; sourceTree = "<group>"; };
+		3803D67D1E84EB070055226B /* WeatherService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherService.m; sourceTree = "<group>"; };
+		3803D8191E891A960055226B /* ManageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageData.h; sourceTree = "<group>"; };
+		3803D81A1E891A960055226B /* ManageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageData.m; sourceTree = "<group>"; };
 		3812C4CC1E81123B00D6A019 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
 		3812C4CD1E81123B00D6A019 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
 		38A235901E793B1A00EE752A /* 2-4-1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "2-4-1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3803D6771E84E4A70055226B /* libsqlite3.dylib in Frameworks */,
 				27B9F52E2B9FEFC3C76DCABF /* libPods-2-4-1.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,6 +108,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3803D67B1E84E5820055226B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3803D67C1E84EB070055226B /* WeatherService.h */,
+				3803D67D1E84EB070055226B /* WeatherService.m */,
+				3803D8191E891A960055226B /* ManageData.h */,
+				3803D81A1E891A960055226B /* ManageData.m */,
+				38A235C61E7A4D2800EE752A /* Weather.h */,
+				38A235C71E7A4D2800EE752A /* Weather.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		38A235871E793B1A00EE752A = {
 			isa = PBXGroup;
 			children = (
@@ -124,12 +146,11 @@
 		38A235921E793B1A00EE752A /* 2-4-1 */ = {
 			isa = PBXGroup;
 			children = (
+				3803D67B1E84E5820055226B /* Model */,
 				38A235961E793B1A00EE752A /* AppDelegate.h */,
 				38A235971E793B1A00EE752A /* AppDelegate.m */,
 				38A235991E793B1A00EE752A /* ViewController.h */,
 				38A2359A1E793B1A00EE752A /* ViewController.m */,
-				38A235C61E7A4D2800EE752A /* Weather.h */,
-				38A235C71E7A4D2800EE752A /* Weather.m */,
 				38A2359C1E793B1A00EE752A /* Main.storyboard */,
 				3812C4CC1E81123B00D6A019 /* CustomCell.h */,
 				3812C4CD1E81123B00D6A019 /* CustomCell.m */,
@@ -170,6 +191,7 @@
 		9E376297978FBBF7282C838B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3803D6761E84E4A70055226B /* libsqlite3.dylib */,
 				05073A2CCA2E8936904E2058 /* libPods-2-4-1.a */,
 				0D132C9658E019AF727287EB /* libPods-2-4-1Tests.a */,
 				CF9F69D63502857AA913B6D2 /* libPods-2-4-1UITests.a */,
@@ -472,7 +494,9 @@
 			files = (
 				38A235C81E7A4D2800EE752A /* Weather.m in Sources */,
 				38A2359B1E793B1A00EE752A /* ViewController.m in Sources */,
+				3803D67E1E84EB070055226B /* WeatherService.m in Sources */,
 				38A235981E793B1A00EE752A /* AppDelegate.m in Sources */,
+				3803D81B1E891A960055226B /* ManageData.m in Sources */,
 				38A235951E793B1A00EE752A /* main.m in Sources */,
 				3812C4CE1E81123B00D6A019 /* CustomCell.m in Sources */,
 			);
