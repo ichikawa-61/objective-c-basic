@@ -10,8 +10,7 @@
 #import "WeatherService.h"
 
 @implementation ManageData
-
-
+NSInteger x = 0;
 
 -(id)init{
     
@@ -35,7 +34,7 @@
     [db open];
     FMResultSet* results = [db executeQuery:sqlite];
     NSMutableArray* list = [[NSMutableArray alloc]init];
-    NSLog(@"いいいいいいい");
+    
     while([results next]){
         
         Weather *weather = [[Weather alloc]init];
@@ -54,19 +53,19 @@
 
 -(void)addInfo:(Weather*)weather{
     
-    
     NSString *date  = weather.dateLabel;
     NSString *telop = weather.telop;
     NSString *icon  = weather.imageUrl;
+    x = 1+x;
     
-    //データを入れる時コメントアウト
+
     
         FMDatabase* db = [self getConnection];
         [db open];
     
-        NSString *sql = @"INSERT INTO t_weather (weather_telop, weather_date, weather_icon) VALUES (?,?,?)";
-    
-        [db executeUpdate:sql,telop,date,icon];
+        NSString *sql = @"UPDATE t_weather SET weather_telop = ?, weather_date = ?, weather_icon = ? WHERE weather_id = ?";
+   
+    [db executeUpdate:sql,telop,date,icon,[NSNumber numberWithInteger:x]];
     
     
         [db close];
@@ -89,7 +88,7 @@
     if(self.db_path == nil){
         self.db_path = [ManageData getDbFilePath];
     }
-    //NSLog(@"%@",self.db_path);
+    
     return [FMDatabase databaseWithPath:self.db_path];
     
 };

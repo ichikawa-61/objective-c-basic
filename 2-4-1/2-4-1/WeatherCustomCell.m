@@ -8,7 +8,7 @@
 
 #import "WeatherCustomCell.h"
 
-@implementation CustomCell
+@implementation WeatherCustomCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

@@ -11,7 +11,7 @@
 #import "Weather.h"
 
 
-@implementation WeatherTableView
+@implementation TableDataProvider
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -23,17 +23,12 @@
 
 -(void)setUpTableView:(NSArray*)lists{
     
-    UITableView *tableView = [[UITableView alloc]init];
-    
-    NSLog(@"%@",lists);
-
-   
-
+      self.item = lists;
 }
 
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    NSLog(@"こここここ");
+    
     return 1;
 }
 
@@ -43,20 +38,20 @@
     
     return self.item.count;
     
-    
 }
+
+
 
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     static NSString *CellIdentifier = @"weatherCell";
-    WeatherCustomCell *cell = (WeatherCustomCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    WeatherCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    //Weather * weather =[self.weatherDatas objectAtIndex:indexPath.row];
     Weather *weather = [self.item objectAtIndex:indexPath.row];
+    
     cell.imfoLabel.text = weather.telop;
     cell.dateLabel.text = weather.dateLabel;
-    //cell.imageIcon.image = weather.imageUrl;
     NSURL *url = [NSURL URLWithString:weather.imageUrl];
     NSData *data = [NSData dataWithContentsOfURL:url];
     UIImage *image = [UIImage imageWithData:data];
@@ -66,9 +61,24 @@
     
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 330.0;
+-(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    
+    UILabel* footerLb = [[UILabel alloc]init];
+        footerLb.numberOfLines = 0;
+    footerLb.backgroundColor = [UIColor redColor];
+    return footerLb;
+    
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return tableView.sectionHeaderHeight;
+}
+
+
+//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+//    return 330.0;
+//}
 
 
 

@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import "ViewController.h"
 #import "Weather.h"
 #import "FMDB.h"
 
@@ -21,11 +20,8 @@
 
 
 @interface WeatherService : NSObject
-//@property(strong, nonatomic)ViewController* api;
-//@property (strong, nonatomic) ViewController *viewController;
 @property (weak,nonatomic)id delegate;
 @property(nonatomic, strong) NSMutableArray* weatherDatas;
-//@property(strong, nonatomic)ViewController *viewController;
 
 -(void)getWeatherInfo;
 

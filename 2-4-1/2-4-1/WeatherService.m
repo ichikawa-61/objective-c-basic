@@ -29,6 +29,8 @@ static NSString* const _url = @"http://weather.livedoor.com/forecast/webservice/
       parameters:nil
          success:^(NSURLSessionDataTask *  task, id   responseObject) {
              
+             
+             
              for (NSDictionary<NSString *, NSString *> *forecasts in responseObject[@"forecasts"]) {
                  Weather *weather = [[Weather alloc] init];
                  
@@ -37,7 +39,15 @@ static NSString* const _url = @"http://weather.livedoor.com/forecast/webservice/
                  weather.imageUrl = [forecasts valueForKeyPath:@"image.url"];
                  [weatherData addObject:weather];
                  
-             }
+                 
+        //-------------------------------------------------
+        //    通信を受けとたら、データベースに入れるためのメソッド
+        //-------------------------------------------------
+               ManageData *data = [[ManageData alloc]init];
+                 [data addInfo:weather];
+                 
+                 
+              }
              
          } failure:^(NSURLSessionDataTask *  task, NSError *  error) {
              NSLog(@"%@", error);

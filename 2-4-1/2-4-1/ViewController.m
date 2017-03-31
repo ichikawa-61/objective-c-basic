@@ -8,15 +8,18 @@
 
 #import "ViewController.h"
 #import "Weather.h"
-#import "CustomCell.h"
 #import "WeatherService.h"
 #import "ManageData.h"
+#import "WeatherCustomCell.h"
+#import "TableDataProvider.h"
 
 
 @interface ViewController ()
-
 @property (nonatomic,retain) WeatherService *info;
 @property(nonatomic, strong) NSArray* list;
+@property(strong, nonatomic) TableDataProvider *dataSource;
+
+
 @end
 
 
@@ -41,83 +44,31 @@
 
 
 
+
 #pragma mark - APIgetWeatherDelegte method
 
 -(void)finishGettingInfo{
-    NSLog(@"ああああああ");
+    
     ManageData *data = [[ManageData alloc]init];
     
     NSArray *lists = [data weatherList];
     self.list = lists;
     
-    for(Weather *weather in self.list){
-        NSLog(@"%@",weather.telop);
-
-    }
+    
+    //tableView datasourceクラスのインスタンスをデータソースに指定
+    self.dataSource = [[TableDataProvider alloc]init];
+    self.tableView.dataSource = self.dataSource;
+    [self.dataSource setUpTableView:lists];
+    
+    //datasourceにデーターを引数で渡したら、tableviewをリロード
+    [self.tableView reloadData];
 
 }
-
-
-
-
-#pragma mark - UITableViewDataSource
-
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-
-    return 1;
-}
-
-
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
-    return self.list.count;
-   
-    
-}
-
-
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    static NSString *CellIdentifier = @"weatherCell";
-    CustomCell *cell = (CustomCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-            //Weather * weather =[self.weatherDatas objectAtIndex:indexPath.row];
-            Weather *weather = [self.list objectAtIndex:indexPath.row];
-            cell.imfoLabel.text = weather.telop;
-            cell.dateLabel.text = weather.dateLabel;
-            //cell.imageIcon.image = weather.imageUrl;
-            NSURL *url = [NSURL URLWithString:weather.imageUrl];
-            NSData *data = [NSData dataWithContentsOfURL:url];
-            UIImage *image = [UIImage imageWithData:data];
-            cell.imageIcon.image = image;
-    
-            return cell;
-
-}
-
-//-(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-//    
-////    WeatherService * weather = [[WeatherService alloc]init];
-////    UILabel* footerLb = [[UILabel alloc]init];
-////    footerLb.numberOfLines = 0;
-////    footerLb.backgroundColor = [UIColor redColor];
-////    footerLb.adjustsFontSizeToFitWidth = YES;
-////    //footerLb.text = weather.discription;
-////   
-////    return footerLb;
-//}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 330.0;
-}
-
-
-
 
 
 #pragma mark - UIAlertController
 - (IBAction)getWeather:(id)sender {
+    
     
     UIAlertController *al =
         [UIAlertController alertControllerWithTitle:@"天気予報"
@@ -130,7 +81,6 @@
                                    
                                    
                                    Weather * weather = [self.list objectAtIndex:0];
-                                   //[Weather *weather objectAtIndex:0];
                                    NSLog(@"%@:%@の天気は%@です。",weather.city,weather.dateLabel,weather.telop);
                                    
                                }
@@ -139,9 +89,8 @@
         [UIAlertAction actionWithTitle:@"明日の天気"
                                  style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction * action){
-                                   //処理を書く
+
                                    Weather * weather =[self.list objectAtIndex:1];
-                                   //Weather * weather = [self.weatherDatas objectAtIndex:1];
                                   NSLog(@"%@:%@の天気は%@です。",weather.city,weather.dateLabel,weather.telop);
                               }
          ];
@@ -163,5 +112,5 @@
     [al addAction:tomorrowAction];
     [al addAction:dayAfterTomorrow];
     [self presentViewController:al animated:YES completion:nil];
-                              }
+}
 @end
