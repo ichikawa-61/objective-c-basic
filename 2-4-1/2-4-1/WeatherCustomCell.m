@@ -6,7 +6,7 @@
 //  Copyright © 2017 Manami Ichikawa. All rights reserved.
 //
 
-#import "CustomCell.h"
+#import "WeatherCustomCell.h"
 
 @implementation CustomCell
 

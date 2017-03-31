@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CustomCell : UITableViewCell
+@interface WeatherCustomCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imageIcon;
 @property (weak, nonatomic) IBOutlet UILabel *imfoLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
