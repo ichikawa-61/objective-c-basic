@@ -10,7 +10,7 @@
 #import "Weather.h"
 #import "FMDB.h"
 
-@protocol APIgetWeatherDelegte<NSObject>
+@protocol APIGetWeatherDelegte<NSObject>
 
 @optional
 
@@ -24,5 +24,14 @@
 @property(nonatomic, strong) NSMutableArray* weatherDatas;
 
 -(void)getWeatherInfo;
+
+typedef NS_ENUM(NSInteger, WeatherDay){
+    
+    Today=1,
+    Tomorrow,
+    DayAfterTomorrow
+    
+};
+
 
 @end

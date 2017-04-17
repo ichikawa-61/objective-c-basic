@@ -53,23 +53,30 @@ NSInteger x = 0;
 
 -(void)addInfo:(Weather*)weather{
     
-    NSString *date  = weather.dateLabel;
-    NSString *telop = weather.telop;
-    NSString *icon  = weather.imageUrl;
-    x = 1+x;
+    NSString *date       = weather.dateLabel;
+    NSString *telop      = weather.telop;
+    NSString *icon       = weather.imageUrl;
+    NSInteger weatherDay = weather.weatherDay;
+    
+    
+   
     
 
     
-        FMDatabase* db = [self getConnection];
-        [db open];
+    FMDatabase* db = [self getConnection];
+    [db open];
+    [db beginTransaction];
     
-        NSString *sql = @"UPDATE t_weather SET weather_telop = ?, weather_date = ?, weather_icon = ? WHERE weather_id = ?";
+
+    NSString *sql = @"INSERT OR REPLACE INTO t_weather (weather_id, weather_telop, weather_date, weather_icon) VALUES (?,?,?,?)";
    
-    [db executeUpdate:sql,telop,date,icon,[NSNumber numberWithInteger:x]];
+    [db executeUpdate:sql,[NSNumber numberWithInteger:weatherDay],telop,date,icon];
+    [db commit];
+    
+    [db close];
     
     
-        [db close];
-    
+        
     
 }
 
@@ -88,6 +95,8 @@ NSInteger x = 0;
     if(self.db_path == nil){
         self.db_path = [ManageData getDbFilePath];
     }
+    
+    NSLog(@"%@",_db_path);
     
     return [FMDatabase databaseWithPath:self.db_path];
     

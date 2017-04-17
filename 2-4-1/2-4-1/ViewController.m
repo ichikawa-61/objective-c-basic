@@ -58,7 +58,7 @@
     //tableView datasourceクラスのインスタンスをデータソースに指定
     self.dataSource = [[TableDataProvider alloc]init];
     self.tableView.dataSource = self.dataSource;
-    [self.dataSource setUpTableView:lists];
+    //[self.dataSource setUpTableView:lists];
     
     //datasourceにデーターを引数で渡したら、tableviewをリロード
     [self.tableView reloadData];
@@ -89,9 +89,8 @@
         [UIAlertAction actionWithTitle:@"明日の天気"
                                  style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction * action){
-
                                    Weather * weather =[self.list objectAtIndex:1];
-                                  NSLog(@"%@:%@の天気は%@です。",weather.city,weather.dateLabel,weather.telop);
+                                   NSLog(@"%@:%@の天気は%@です。",weather.city,weather.dateLabel,weather.telop);
                               }
          ];
     

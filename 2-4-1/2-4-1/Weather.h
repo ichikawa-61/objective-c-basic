@@ -10,11 +10,11 @@
 
 @interface Weather : NSObject
 
-@property (strong, nonatomic) NSString *dateLabel;
-@property (strong, nonatomic) NSString *telop;
-@property (strong, nonatomic) NSString *imageUrl;
-@property (strong, nonatomic) NSString *city;
-@property (strong, nonatomic) NSString *discription;
-//@property (strong, nonatomic) NSString *discription;
+@property (strong, nonatomic) NSString  *dateLabel;
+@property (strong, nonatomic) NSString  *telop;
+@property (strong, nonatomic) NSString  *imageUrl;
+@property (strong, nonatomic) NSString  *city;
+@property (strong, nonatomic) NSString  *discription;
+@property (nonatomic) NSInteger weatherDay;
 
 @end

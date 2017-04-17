@@ -9,7 +9,7 @@
 #import "ResisterToDoViewController.h"
 #import "FMDB.h"
 #import "CostomCell.h"
-#import "Todo.h"
+#import "ToDo.h"
 #import "DetailViewController.h"
 
 @interface TodoViewController ()
@@ -64,7 +64,7 @@
 //       NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 //    [formatter setDateFormat:@"yyyy/MM/dd"];
     while ([results next]){
-        Todo*todo = [[Todo alloc] init];
+        ToDo* todo = [[ToDo alloc] init];
         todo.todoId     = [results intForColumn:@"todo_id"];
         todo.todoTitle  = [results stringForColumn:@"todo_title"];
         todo.todoContents  = [results stringForColumn:@"todo_contents"];
@@ -121,7 +121,7 @@
     
     
     
-    Todo *todo = [self.list objectAtIndex:indexPath.row];
+    ToDo *todo = [self.list objectAtIndex:indexPath.row];
     cell.titleLabel.text = todo.todoTitle;
     cell.dateLabel.text = todo.limitDate;
     
@@ -168,7 +168,7 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         
         //listの中にあるrow番目の情報を格納
-        Todo*todo =[self.list objectAtIndex:indexPath.row];
+        ToDo*todo =[self.list objectAtIndex:indexPath.row];
         //detailViewController.changeTitle.text = todo.todoTitle;
         detailViewController.test = todo.todoTitle;
         detailViewController.de_title = todo.todoTitle;
@@ -206,7 +206,7 @@
    
     NSInteger num;
     
-    Todo*todo =[self.list objectAtIndex:indexPath.row];
+    ToDo*todo =[self.list objectAtIndex:indexPath.row];
     
     //クリックされたrowをlistの中から削除　これを忘れるとdeleteRowsAtIndexPathsメソッドで落ちる
     [self.list removeObjectAtIndex: indexPath.row];
