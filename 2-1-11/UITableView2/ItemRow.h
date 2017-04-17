@@ -13,8 +13,8 @@
 @property(nonatomic)  NSDictionary *sectionList;
 @property(nonatomic,strong)  NSString *words;
 @property(nonatomic,strong)  NSString *picture;
-@property (nonatomic, strong) NSMutableArray *list;
+@property (nonatomic, strong) NSDictionary *list;
 
--(id)init:(NSDictionary*)literature;
+-(id)init:(int)country;
 
 @end

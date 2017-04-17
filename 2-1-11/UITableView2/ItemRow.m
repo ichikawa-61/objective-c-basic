@@ -12,11 +12,30 @@
 @synthesize list;
 
 
--(id)init:(NSDictionary*)literature {
+-(id)init:(int)country{
     
-    self.words   = literature[@"words"];
-    self.picture = literature[@"picture"];
+   
     
+    
+//    switch (country) {
+//        case 0:{
+//            self.list    = [sea objectAtIndex:literature ];
+//        
+//        }break;
+//        case 1:{
+//            self.list    = [japan objectAtIndex:literature ];
+//            
+//        }break;
+//        default:
+//            break;
+//    }
+//    
+//   
+    
+    self.words   = self.list[@"words"];
+    self.picture = self.list[@"picture"];
+    
+     
     return self;
 };
 

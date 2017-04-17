@@ -8,11 +8,12 @@
 
 
 #import <UIKit/UIKit.h>
-#import "ViewController.h"
-
-@interface TableDataProvider : NSObject<UITableViewDataSource,UITableViewDelegate,showTableView>
 
 
 
-@property(strong,nonatomic) NSArray *item;
+@interface TableDataProvider : NSObject<UITableViewDataSource,UITableViewDelegate>
+
+
+-(void)setUpTableView:(NSArray*)lists;
+@property(strong,nonatomic) NSArray *items;
 @end

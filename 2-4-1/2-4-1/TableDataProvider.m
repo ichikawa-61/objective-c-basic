@@ -23,7 +23,7 @@
 
 -(void)setUpTableView:(NSArray*)lists{
     
-      self.item = lists;
+      self.items = lists;
 }
 
 
@@ -36,7 +36,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return self.item.count;
+    return self.items.count;
     
 }
 
@@ -48,10 +48,13 @@
     static NSString *CellIdentifier = @"weatherCell";
     WeatherCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    Weather *weather = [self.item objectAtIndex:indexPath.row];
+    Weather *weather = [self.items objectAtIndex:indexPath.row];
     
-    cell.imfoLabel.text = weather.telop;
-    cell.dateLabel.text = weather.dateLabel;
+//    NSString *weatherInfomation = weather.telop;
+//    NSString *weatherDate       = weather.dateLabel;
+    
+    cell.imfoLabel.text = [NSString stringWithFormat:@"%@の天気は%@です", weather.dateLabel, weather.telop];
+    //cell.dateLabel.text = weather.dateLabel;
     NSURL *url = [NSURL URLWithString:weather.imageUrl];
     NSData *data = [NSData dataWithContentsOfURL:url];
     UIImage *image = [UIImage imageWithData:data];
@@ -64,7 +67,7 @@
 -(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     
     UILabel* footerLb = [[UILabel alloc]init];
-        footerLb.numberOfLines = 0;
+    footerLb.numberOfLines = 0;
     footerLb.backgroundColor = [UIColor redColor];
     return footerLb;
     

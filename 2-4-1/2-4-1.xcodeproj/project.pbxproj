@@ -135,6 +135,16 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		380FD61D1E8E335E0046AE59 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3803D82D1E8B6CAE0055226B /* Main.storyboard */,
+				38A2359A1E793B1A00EE752A /* ViewController.m */,
+				38A235991E793B1A00EE752A /* ViewController.h */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		38A235871E793B1A00EE752A = {
 			isa = PBXGroup;
 			children = (
@@ -160,12 +170,10 @@
 		38A235921E793B1A00EE752A /* 2-4-1 */ = {
 			isa = PBXGroup;
 			children = (
-				3803D67B1E84E5820055226B /* Model */,
 				38A235961E793B1A00EE752A /* AppDelegate.h */,
 				38A235971E793B1A00EE752A /* AppDelegate.m */,
-				38A235991E793B1A00EE752A /* ViewController.h */,
-				38A2359A1E793B1A00EE752A /* ViewController.m */,
-				3803D82D1E8B6CAE0055226B /* Main.storyboard */,
+				3803D67B1E84E5820055226B /* Model */,
+				380FD61D1E8E335E0046AE59 /* Controller */,
 				3803D8201E8A44750055226B /* View */,
 				38A2359F1E793B1A00EE752A /* Assets.xcassets */,
 				38A235A11E793B1A00EE752A /* LaunchScreen.storyboard */,

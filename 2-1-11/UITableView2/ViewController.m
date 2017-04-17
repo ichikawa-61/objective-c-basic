@@ -35,10 +35,10 @@
     NSString *path     = [bundle pathForResource:@"PropertyList" ofType:@"plist"];
     
     //plistの中身データを取得
-    NSDictionary   *dic = [NSDictionary dictionaryWithContentsOfFile:path];
+    NSDictionary  *dic = [NSDictionary dictionaryWithContentsOfFile:path];
     
-    NSArray *sea = [NSArray arrayWithArray:dic[@"sea"]];
-    NSArray *japan =[NSArray arrayWithArray:dic[@"jap"]];
+    NSArray *sea   = [NSArray arrayWithArray:dic[@"sea"]];
+    NSArray *japan = [NSArray arrayWithArray:dic[@"jap"]];
     
     self.japan = japan;
     self.sea   = sea;
@@ -81,7 +81,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-       return 3;
+       return self.japan.count;
     
 }
 
@@ -91,21 +91,22 @@
     
     cell.customLabel.numberOfLines = 0;
     
+    NSInteger row     = indexPath.row;
+    //NSInteger section = indexPath.section;
     
-    
-    NSDictionary*literature2  = [self.japan objectAtIndex:indexPath.row];
-    NSDictionary*literature   = [self.sea objectAtIndex:indexPath.row];
+//    NSDictionary*literature2  = [self.japan objectAtIndex:row];
+//    NSDictionary*literature   = [self.sea objectAtIndex:row];
    
         switch (indexPath.section){
             case 0:{
-                ItemRow *items  = [[ItemRow alloc]init:(NSDictionary *)literature];
+                ItemRow *items  = [[ItemRow alloc]init:(int)row];
                 
                 cell.customLabel.text  = items.words;
                 cell.customImage.image = [UIImage imageNamed:items.picture];
-              
+                NSLog(@"%@",items.words);
             }break;
             case 1:{
-                ItemRow *items  = [[ItemRow alloc]init:(NSDictionary *)literature2];
+                ItemRow *items  = [[ItemRow alloc]init:(int)row];
                 
                 cell.customLabel.text  = items.words;
                 cell.customImage.image = [UIImage imageNamed:items.picture];

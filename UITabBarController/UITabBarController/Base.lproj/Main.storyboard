@@ -31,8 +31,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" image="1489063201_Camera-01.png" id="BVT-lL-OP4">
-                        <inset key="imageInsets" minX="22" minY="26" maxX="22" maxY="20"/>
+                    <tabBarItem key="tabBarItem" title="Item 2" image="home" id="BVT-lL-OP4">
+                        <inset key="imageInsets" minX="25" minY="25" maxX="25" maxY="25"/>
                     </tabBarItem>
                     <connections>
                         <outlet property="label2" destination="bAx-hT-N5d" id="l3H-be-zme"/>
@@ -64,8 +64,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" image="1489063194_Home-01.png" id="6rF-e6-jlI">
-                        <inset key="imageInsets" minX="23" minY="26" maxX="23" maxY="23"/>
+                    <tabBarItem key="tabBarItem" title="Item 1" image="camera" id="6rF-e6-jlI">
+                        <inset key="imageInsets" minX="24" minY="25" maxX="24" maxY="25"/>
                     </tabBarItem>
                     <connections>
                         <outlet property="label1" destination="vSq-J7-sdU" id="dqq-1c-1ge"/>
@@ -95,7 +95,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1489063194_Home-01.png" width="128" height="128"/>
-        <image name="1489063201_Camera-01.png" width="128" height="128"/>
+        <image name="camera" width="32" height="32"/>
+        <image name="home" width="32" height="32"/>
     </resources>
 </document>

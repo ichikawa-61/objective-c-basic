@@ -19,7 +19,7 @@
 		383B2EA01E76958C00F940AB /* DBTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 383B2E9F1E76958C00F940AB /* DBTestUITests.m */; };
 		383B2F331E7782C500F940AB /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 383B2F321E7782C500F940AB /* libsqlite3.dylib */; };
 		383B2F361E7790C200F940AB /* ResisterToDoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 383B2F351E7790C200F940AB /* ResisterToDoViewController.m */; };
-		38470DB41E7B73EC00245D91 /* Todo.m in Sources */ = {isa = PBXBuildFile; fileRef = 38470DB31E7B73EC00245D91 /* Todo.m */; };
+		38470DB41E7B73EC00245D91 /* ToDo.m in Sources */ = {isa = PBXBuildFile; fileRef = 38470DB31E7B73EC00245D91 /* ToDo.m */; };
 		38470DB71E7B801000245D91 /* ManageToDo.m in Sources */ = {isa = PBXBuildFile; fileRef = 38470DB61E7B801000245D91 /* ManageToDo.m */; };
 		38A235861E79226F00EE752A /* CostomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A235851E79226F00EE752A /* CostomCell.m */; };
 		BFE6185BA501861E69C68C84 /* libPods-DBTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7DECF844BACA176A15EC047 /* libPods-DBTest.a */; };
@@ -66,8 +66,8 @@
 		383B2F321E7782C500F940AB /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
 		383B2F341E7790C200F940AB /* ResisterToDoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResisterToDoViewController.h; sourceTree = "<group>"; };
 		383B2F351E7790C200F940AB /* ResisterToDoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResisterToDoViewController.m; sourceTree = "<group>"; };
-		38470DB21E7B73EC00245D91 /* Todo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Todo.h; sourceTree = "<group>"; };
-		38470DB31E7B73EC00245D91 /* Todo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Todo.m; sourceTree = "<group>"; };
+		38470DB21E7B73EC00245D91 /* ToDo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDo.h; sourceTree = "<group>"; };
+		38470DB31E7B73EC00245D91 /* ToDo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDo.m; sourceTree = "<group>"; };
 		38470DB51E7B801000245D91 /* ManageToDo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageToDo.h; sourceTree = "<group>"; };
 		38470DB61E7B801000245D91 /* ManageToDo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageToDo.m; sourceTree = "<group>"; };
 		38A235841E79226F00EE752A /* CostomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CostomCell.h; sourceTree = "<group>"; };
@@ -138,8 +138,8 @@
 			children = (
 				383B2E7D1E76958C00F940AB /* AppDelegate.h */,
 				383B2E7E1E76958C00F940AB /* AppDelegate.m */,
-				38470DB21E7B73EC00245D91 /* Todo.h */,
-				38470DB31E7B73EC00245D91 /* Todo.m */,
+				38470DB21E7B73EC00245D91 /* ToDo.h */,
+				38470DB31E7B73EC00245D91 /* ToDo.m */,
 				383B2E801E76958C00F940AB /* ToDoViewController.h */,
 				383B2E811E76958C00F940AB /* ToDoViewController.m */,
 				383B2E831E76958C00F940AB /* Main.storyboard */,
@@ -490,7 +490,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				383B2E821E76958C00F940AB /* ToDoViewController.m in Sources */,
-				38470DB41E7B73EC00245D91 /* Todo.m in Sources */,
+				38470DB41E7B73EC00245D91 /* ToDo.m in Sources */,
 				38A235861E79226F00EE752A /* CostomCell.m in Sources */,
 				380B353A1E80C09400F7488E /* DetailViewController.m in Sources */,
 				383B2F361E7790C200F940AB /* ResisterToDoViewController.m in Sources */,

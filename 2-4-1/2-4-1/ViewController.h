@@ -10,15 +10,16 @@
 #import "WeatherService.h"
 
 
-@protocol showTableView
-
--(void)setUpTableView:(NSArray*)lists;
-
-@end
+//@protocol showTableView
 
 
-@interface ViewController : UIViewController<APIgetWeatherDelegte>
 
+//@end
+
+
+@interface ViewController : UIViewController<APIGetWeatherDelegte>
+
+//-(void)setUpTableView:(NSArray*)lists;
 
 - (IBAction)getWeather:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

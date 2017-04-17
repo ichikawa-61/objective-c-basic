@@ -19,4 +19,6 @@
 -(void)addInfo:(Weather*)weather;
 -(NSArray*)weatherList;
 
+
+    
 @end

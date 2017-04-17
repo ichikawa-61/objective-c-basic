@@ -17,8 +17,6 @@
 		383451E11E712183005AD0C9 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 383451E01E712183005AD0C9 /* TabBarController.m */; };
 		383451E41E7122C8005AD0C9 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 383451E31E7122C8005AD0C9 /* FirstViewController.m */; };
 		383451E71E7122E7005AD0C9 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 383451E61E7122E7005AD0C9 /* SecondViewController.m */; };
-		383451F11E713077005AD0C9 /* 1489063194_Home-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 383451F01E713077005AD0C9 /* 1489063194_Home-01.png */; };
-		383451F31E71307E005AD0C9 /* 1489063201_Camera-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 383451F21E71307E005AD0C9 /* 1489063201_Camera-01.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,8 +57,6 @@
 		383451E31E7122C8005AD0C9 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		383451E51E7122E7005AD0C9 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		383451E61E7122E7005AD0C9 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		383451F01E713077005AD0C9 /* 1489063194_Home-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1489063194_Home-01.png"; sourceTree = "<group>"; };
-		383451F21E71307E005AD0C9 /* 1489063201_Camera-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1489063201_Camera-01.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,8 +116,6 @@
 				383451E31E7122C8005AD0C9 /* FirstViewController.m */,
 				383451E51E7122E7005AD0C9 /* SecondViewController.h */,
 				383451E61E7122E7005AD0C9 /* SecondViewController.m */,
-				383451F01E713077005AD0C9 /* 1489063194_Home-01.png */,
-				383451F21E71307E005AD0C9 /* 1489063201_Camera-01.png */,
 				383451B81E711E6D005AD0C9 /* Assets.xcassets */,
 				383451BA1E711E6D005AD0C9 /* LaunchScreen.storyboard */,
 				383451BD1E711E6D005AD0C9 /* Info.plist */,
@@ -262,10 +256,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				383451F11E713077005AD0C9 /* 1489063194_Home-01.png in Resources */,
 				383451BC1E711E6D005AD0C9 /* LaunchScreen.storyboard in Resources */,
 				383451B91E711E6D005AD0C9 /* Assets.xcassets in Resources */,
-				383451F31E71307E005AD0C9 /* 1489063201_Camera-01.png in Resources */,
 				383451B71E711E6D005AD0C9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
